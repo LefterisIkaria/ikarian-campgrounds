@@ -1,0 +1,58 @@
+<% layout("layouts/boilerplate") %>
+
+<h1>Create Campground</h1>
+
+<form
+  class="row g-3 needs-validation"
+  action="/campgrounds"
+  method="post"
+  enctype="multipart/form-data"
+  novalidate
+>
+  <div class="col-md-6">
+    <label for="title" class="form-label">Title</label>
+    <input type="text" class="form-control" id="title" name="campground[title]" required />
+    <div class="valid-feedback">Looks good!</div>
+    <div class="invalid-feedback">Please provide a title.</div>
+  </div>
+  <div class="col-md-6">
+    <label for="price" class="form-label">Price</label>
+    <div class="input-group mb-3">
+      <span class="input-group-text">$</span>
+      <input
+        type="number"
+        class="form-control"
+        id="price"
+        name="campground[price]"
+        min="0.00"
+        value="0.00"
+        step=".01"
+        pattern="^\d+(?:\.\d{1,2})?$"
+        required
+      />
+      <div class="valid-feedback">Looks good!</div>
+      <div class="invalid-feedback">Please add a price.</div>
+    </div>
+  </div>
+  <div class="col-12">
+    <label for="location" class="form-label">Location</label>
+    <input type="text" class="form-control" id="location" name="campground[location]" required />
+    <div class="valid-feedback">Looks good!</div>
+    <div class="invalid-feedback">Please provide the location of the Campground.</div>
+  </div>
+  <div class="col-12">
+    <label for="files" class="form-label">Images</label>
+    <input type="file" class="form-control" id="files" name="images" multiple required />
+    <div class="valid-feedback">Looks good!</div>
+    <div class="invalid-feedback">Please upload at least one image file.</div>
+  </div>
+  <div class="col-12">
+    <label for="description" class="form-label">Description</label>
+    <textarea type="text" class="form-control" id="description" name="campground[description]">
+    </textarea>
+  </div>
+
+  <div class="col-12">
+    <button type="submit" class="btn btn-success">Create Campground</button>
+  </div>
+</form>
